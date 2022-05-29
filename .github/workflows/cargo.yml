@@ -1,4 +1,4 @@
-ame: Rust CI with Cargo
+name: Rust CI with Cargo
 
 on:
   push:
