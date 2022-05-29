@@ -1,0 +1,22 @@
+[package]
+name = "snake"
+version = "0.1.0"
+edition = "2021"
+repository = "https://git.exst.fun/snake"
+license = "MIT"
+authors = ["Pedro Henrique <hello@exst.fun>"]
+categories = ["game", "bevy", "snake", "desktop", "webassembly"]
+description = "A reimplementation of the classic snake game written in Rust." 
+
+[workspace]
+members = ["./", "tools/lint"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = "^0.7"
+ezinput = "^0.2"
+ezinput_macros = "^0.2"
+
+[dev-dependencies]
+wasm-bindgen-test = "^0.3"
