@@ -17,6 +17,11 @@ members = ["./", "tools/lint"]
 bevy = "^0.7"
 ezinput = "^0.2"
 ezinput_macros = "^0.2"
+futures = "^0.3"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+web-sys = "^0.3"
+gloo-events = "^0.1"
 
 [dev-dependencies]
 wasm-bindgen-test = "^0.3"

@@ -4,8 +4,8 @@ use bevy::prelude::{default, App, DefaultPlugins, Msaa, WindowDescriptor};
 use snake::GamePlugin;
 
 fn main() {
-    App::new()
-        .insert_resource(Msaa::default())
+    let mut app = App::new();
+    app.insert_resource(Msaa::default())
         .insert_resource(WindowDescriptor {
             title: String::from("Snake"),
             height: 800.,
@@ -13,6 +13,10 @@ fn main() {
             ..default()
         })
         .add_plugins(DefaultPlugins)
-        .add_plugin(GamePlugin)
-        .run();
+        .add_plugin(GamePlugin);
+
+    #[cfg(target_arch = "wasm32")]
+    app.add_plugin(snake::web::WebViewportAutoResizePlugin);
+
+    app.run();
 }

@@ -8,6 +8,9 @@ pub mod player;
 #[path = "macro/mod.rs"]
 mod macros;
 
+#[cfg(target_arch = "wasm32")]
+pub mod web;
+
 /// As recommended by usual game developers, we'll use states to separate
 /// logic in this game. Bevy has a built-in state system, so we'll use that:
 /// https://bevy-cheatbook.github.io/programming/states.html

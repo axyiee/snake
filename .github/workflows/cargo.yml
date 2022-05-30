@@ -46,7 +46,7 @@ jobs:
       - name: 'Build: Rust + WebAssembly'
         run: |
           trunk build --release
-      - name: Optimize Wasm
+      - name: Optimize WASM
         uses: NiklasEi/wasm-opt-action@v2
         with:
           file: pkg/*.wasm
