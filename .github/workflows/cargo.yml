@@ -45,7 +45,7 @@ jobs:
           sudo apt-get install pkg-config libx11-dev libasound2-dev libudev-dev
       - name: 'Build: Rust + WebAssembly'
         run: |
-          trunk build --release --public-url "${GITHUB_REPOSITORY#*/}"
+          trunk build --release
       - name: Optimize Wasm
         uses: NiklasEi/wasm-opt-action@v2
         with:
