@@ -18,8 +18,5 @@ bevy = "^0.7"
 ezinput = "^0.2"
 ezinput_macros = "^0.2"
 
-[patch.crates-io]
-bevy = { git = "https://github.com/bevyengine/bevy" }
-
 [dev-dependencies]
 wasm-bindgen-test = "^0.3"
