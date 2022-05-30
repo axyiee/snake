@@ -36,9 +36,6 @@
 
 ## 🏠 Building
 
-On Windows, you just execute the same commands as the scripts above by reading their files. On Unix-like systems, you can run them
-directly.
-
 * `cargo build --release` ![](./readme/desktop-blue.svg)
 * `trunk build --release` ![](./readme/web-blue.svg)
 
@@ -50,7 +47,7 @@ directly.
 
 [git]: https://git-scm.com/
 [rustup]: https://rustup.rs
-[trunk]: https://trunkrs.com
+[trunk]: https://trunkrs.dev
 [nodejs]: https://nodejs.org/en/
 [mold]: https://github.com/rui314/mold
 [zld]: https://github.com/michaeleisel/zld
