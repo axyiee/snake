@@ -5,17 +5,23 @@ mod input {
     pub use ezinput_macros::*;
 }
 
-use bevy::prelude::{Commands, Entity, Query, SystemSet, With};
 use super::entity::Player;
+use bevy::prelude::{Commands, Entity, Query, SystemSet, With};
 use input::*;
 
 ez! {
     SnakeTypeBindings {
         Movement<TypeMovement> {
-            Left = [KeyboardKey(KeyCode::Left) => -1., KeyboardKey(KeyCode::A) => -1., GamepadAxis(GamepadAxisType::LeftStickX)],
-            Right = [KeyboardKey(KeyCode::Right), KeyboardKey(KeyCode::D), GamepadAxis(GamepadAxisType::LeftStickX)],
-            Up = [KeyboardKey(KeyCode::Up), KeyboardKey(KeyCode::W), GamepadAxis(GamepadAxisType::LeftStickY)],
-            Down = [KeyboardKey(KeyCode::Down) => -1., KeyboardKey(KeyCode::S) => -1., GamepadAxis(GamepadAxisType::LeftStickY)],
+            Horizontal = [
+                KeyboardKey(KeyCode::Left) => -1., KeyboardKey(KeyCode::A) => -1.,
+                KeyboardKey(KeyCode::Right), KeyboardKey(KeyCode::D),
+                GamepadAxis(GamepadAxisType::LeftStickX),
+            ],
+            Vertical = [
+                KeyboardKey(KeyCode::Up), KeyboardKey(KeyCode::W),
+                KeyboardKey(KeyCode::Down) => -1., KeyboardKey(KeyCode::S) => -1.,
+                GamepadAxis(GamepadAxisType::LeftStickY),
+            ],
         },
     }
 }
