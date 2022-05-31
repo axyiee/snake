@@ -1,6 +1,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use bevy::prelude::{default, App, DefaultPlugins, Msaa, WindowDescriptor};
+use bevy::prelude::{default, App, DefaultPlugins, WindowDescriptor};
 use snake::GamePlugin;
 
 #[allow(unused_mut)]
@@ -23,8 +23,7 @@ fn main() {
         app.add_plugin(snake::web::WebViewportAutoResizePlugin);
     }
 
-    app.insert_resource(Msaa::default())
-        .insert_resource(WindowDescriptor {
+    app.insert_resource(WindowDescriptor {
             title: String::from("Snake"),
             width: resolution.0,
             height: resolution.1,
