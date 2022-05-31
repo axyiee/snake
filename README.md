@@ -26,32 +26,32 @@
 
 <table>
     <tr>
-        <th></th>
+        <th>⚪</th>
         <th>Label</th>
-        <th>Hexadecimal</th>
+        <th>Hex</th>
     </tr>
     <tr>
-        <td><img src="https://via.placeholder.com/15/3ba481/000000?text=+">
+        <td><img src="https://readme-swatches.vercel.app/3ba481?style=circle" alt="" /></td>
         <td>Ocean Green</td>
         <td><code>#3ba481</code></td>
     </tr>
     <tr>
-        <td><img src="https://via.placeholder.com/15/6ab798/000000?text=+"></td>
+        <td><img src="https://readme-swatches.vercel.app/6ab798?style=circle" alt="" /></td>
         <td>Silver Tree</td>
         <td><code>#6ab798</code></td>
     </tr>
     <tr>
-        <td><img src="https://via.placeholder.com/15/fbefa3/000000?text=+"></td>
+        <td><img src="https://readme-swatches.vercel.app/fbefa3?style=circle" alt="" /></td>
         <td>Texas</td>
         <td><code>#fbefa3</code></td>
     </tr>
     <tr>
-        <td><img src="https://via.placeholder.com/15/cafe81/000000?text=+"></td>
+        <td><img src="https://readme-swatches.vercel.app/cafe81?style=circle" alt="" /></td>
         <td>Mindaro</td>
         <td><code>#cafe81</code></td>
     </tr>
     <tr>
-        <td><img src="https://via.placeholder.com/15/7ac88b/000000?text=+"></td>
+        <td><img src="https://readme-swatches.vercel.app/7ac88b?style=circle" alt="" /></td>
         <td>De York</td>
         <td><code>#7ac88b</code></td>
     </tr>
