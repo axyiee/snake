@@ -1,6 +1,8 @@
 use crate::{macros::ez, GameplayState};
+
+#[allow(clippy::module_inception)]
 mod input {
-    pub use bevy::prelude::{GamepadAxisType, GamepadButtonType, KeyCode, Plugin};
+    pub use bevy::prelude::{GamepadAxisType, GamepadButtonType, KeyCode, Plugin, ParallelSystemDescriptorCoercion};
     pub use ezinput::prelude::{BindingInputReceiver::*, *};
     pub use ezinput_macros::*;
 }
@@ -26,13 +28,15 @@ ez! {
     }
 }
 
+crate::labels!(InsertPlayerInput);
+
 pub struct PlayerInputPlugin;
 
 impl Plugin for PlayerInputPlugin {
     fn build(&self, app: &mut bevy::prelude::App) {
         app.add_plugin(EZInputPlugin::<SnakeTypeBindings>::default())
             .add_system_set(
-                SystemSet::on_enter(GameplayState::Playing).with_system(insert_player_input),
+                SystemSet::on_enter(GameplayState::Playing).with_system(insert_player_input.label(InsertPlayerInput)),
             );
     }
 }
