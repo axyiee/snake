@@ -66,9 +66,8 @@
 * * `cargo install -f cargo-binutils` ![](./readme/windows-blue.svg)
 * * `rustup component add llvm-tools-preview` ![](./readme/windows-blue.svg)
 * [`rui314/mold` linker][mold] ![](./readme/ubuntu-blue.svg)
-* [`michaeleisel/zld][zld] ![](./readme/apple-blue.svg)
+* [`michaeleisel/zld`][zld] ![](./readme/apple-blue.svg)
 * [Trunk][trunk]
-* [NodeJS + NPM][nodejs]
 
 
 ## 🏠 Building
@@ -85,6 +84,5 @@
 [git]: https://git-scm.com/
 [rustup]: https://rustup.rs
 [trunk]: https://trunkrs.dev
-[nodejs]: https://nodejs.org/en/
 [mold]: https://github.com/rui314/mold
 [zld]: https://github.com/michaeleisel/zld
