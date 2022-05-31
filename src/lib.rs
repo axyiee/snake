@@ -39,7 +39,8 @@ pub struct GamePlugin;
 impl Plugin for GamePlugin {
     fn build(&self, app: &mut App) {
         app.add_state(GameplayState::Loading)
-            .add_plugin(player::PlayerPlugin);
+            .add_plugin(player::PlayerPlugin)
+            .insert_resource(ClearColor(ColorPalette::Background.color()));
 
         #[cfg(debug_assertions)]
         {
@@ -47,7 +48,6 @@ impl Plugin for GamePlugin {
 
             app.add_plugin(FrameTimeDiagnosticsPlugin::default())
                 .add_plugin(LogDiagnosticsPlugin::default())
-                .insert_resource(ClearColor(ColorPalette::Background.color()));
         }
     }
 }

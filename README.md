@@ -65,7 +65,7 @@
 * * `rustup target install wasm32-unknown-unknown`
 * * `cargo install -f cargo-binutils` ![](./readme/windows-blue.svg)
 * * `rustup component add llvm-tools-preview` ![](./readme/windows-blue.svg)
-* [`rui314/mold` linker][mold] ![](./readme/ubuntu-blue.svg)
+* [`rui314/mold`][mold] ![](./readme/ubuntu-blue.svg)
 * [`michaeleisel/zld`][zld] ![](./readme/apple-blue.svg)
 * [Trunk][trunk]
 
