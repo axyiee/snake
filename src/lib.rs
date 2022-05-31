@@ -1,5 +1,6 @@
 use bevy::prelude::{App, Plugin};
 use player::PlayerPlugin;
+use screen::ScreensPlugin;
 use world::WorldPlugin;
 
 pub mod math;
@@ -10,6 +11,9 @@ pub mod player;
 
 #[path = "world/plugin.rs"]
 pub mod world;
+
+#[path = "screen/plugin.rs"]
+pub mod screen;
 
 #[path = "macro/mod.rs"]
 mod macros;
@@ -43,7 +47,8 @@ impl Plugin for GamePlugin {
     fn build(&self, app: &mut App) {
         app.add_state(GameplayState::Loading)
             .add_plugin(WorldPlugin)
-            .add_plugin(PlayerPlugin);
+            .add_plugin(PlayerPlugin)
+            .add_plugin(ScreensPlugin);
 
         #[cfg(debug_assertions)]
         {
