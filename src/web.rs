@@ -1,4 +1,7 @@
-use bevy::{prelude::{App, Plugin, ResMut}, window::Windows};
+use bevy::{
+    prelude::{App, Plugin, ResMut},
+    window::Windows,
+};
 
 struct WebViewportState(futures::channel::mpsc::UnboundedReceiver<(f32, f32)>);
 

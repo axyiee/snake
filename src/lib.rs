@@ -1,4 +1,7 @@
-use bevy::{prelude::{App, Plugin}, core_pipeline::ClearColor};
+use bevy::{
+    core_pipeline::ClearColor,
+    prelude::{App, Plugin},
+};
 
 use crate::palette::ColorPalette;
 
