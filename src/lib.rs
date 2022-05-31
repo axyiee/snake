@@ -1,15 +1,15 @@
-use bevy::{
-    core_pipeline::ClearColor,
-    prelude::{App, Plugin},
-};
-
-use crate::palette::ColorPalette;
+use bevy::prelude::{App, Plugin};
+use player::PlayerPlugin;
+use world::WorldPlugin;
 
 pub mod math;
 pub mod palette;
 
 #[path = "player/plugin.rs"]
 pub mod player;
+
+#[path = "world/plugin.rs"]
+pub mod world;
 
 #[path = "macro/mod.rs"]
 mod macros;
@@ -42,15 +42,15 @@ pub struct GamePlugin;
 impl Plugin for GamePlugin {
     fn build(&self, app: &mut App) {
         app.add_state(GameplayState::Loading)
-            .add_plugin(player::PlayerPlugin)
-            .insert_resource(ClearColor(ColorPalette::Background.color()));
+            .add_plugin(WorldPlugin)
+            .add_plugin(PlayerPlugin);
 
         #[cfg(debug_assertions)]
         {
             use bevy::diagnostic::{FrameTimeDiagnosticsPlugin, LogDiagnosticsPlugin};
 
             app.add_plugin(FrameTimeDiagnosticsPlugin::default())
-                .add_plugin(LogDiagnosticsPlugin::default())
+                .add_plugin(LogDiagnosticsPlugin::default());
         }
     }
 }

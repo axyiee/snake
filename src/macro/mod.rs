@@ -15,4 +15,14 @@ macro_rules! import {
     }
 }
 
+#[macro_export]
+macro_rules! labels {
+    ($($name:ident),*) => {
+        $(
+            #[derive(bevy::prelude::SystemLabel, Debug, Clone, Hash, PartialEq, Eq)]
+            pub struct $name;
+        )*
+    }
+}
+
 import!("ezinput.rs" as ez);
