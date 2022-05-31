@@ -1,6 +1,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use bevy::prelude::{default, App, DefaultPlugins, Msaa, WindowDescriptor};
+use bevy::{prelude::{default, App, DefaultPlugins, Msaa, WindowDescriptor}};
 use snake::GamePlugin;
 
 #[allow(unused_mut)]

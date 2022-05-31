@@ -1,6 +1,9 @@
-use bevy::prelude::{App, Plugin};
+use bevy::{prelude::{App, Plugin}, core_pipeline::ClearColor};
+
+use crate::palette::ColorPalette;
 
 pub mod math;
+pub mod palette;
 
 #[path = "player/plugin.rs"]
 pub mod player;
@@ -43,7 +46,8 @@ impl Plugin for GamePlugin {
             use bevy::diagnostic::{FrameTimeDiagnosticsPlugin, LogDiagnosticsPlugin};
 
             app.add_plugin(FrameTimeDiagnosticsPlugin::default())
-                .add_plugin(LogDiagnosticsPlugin::default());
+                .add_plugin(LogDiagnosticsPlugin::default())
+                .insert_resource(ClearColor(ColorPalette::Background.color()));
         }
     }
 }
