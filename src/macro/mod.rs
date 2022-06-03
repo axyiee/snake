@@ -24,16 +24,3 @@ macro_rules! labels {
         )*
     }
 }
-
-#[macro_export]
-macro_rules! define_voxel_material {
-    ($types: ident, $name: expr, $id: expr) => {
-        pub struct $types;
-        impl $types {
-            pub const ID: u8 = $id;
-            pub const NAME: &'static str = $name;
-        }
-    };
-}
-
-import!("ezinput.rs" as ez);

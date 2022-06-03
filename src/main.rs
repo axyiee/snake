@@ -24,12 +24,12 @@ fn main() {
     }
 
     app.insert_resource(WindowDescriptor {
-            title: String::from("Snake"),
-            width: resolution.0,
-            height: resolution.1,
-            ..default()
-        })
-        .add_plugins(DefaultPlugins)
-        .add_plugin(GamePlugin)
-        .run();
+        title: String::from("Snake"),
+        width: resolution.0,
+        height: resolution.1,
+        ..default()
+    })
+    .add_plugins(DefaultPlugins)
+    .add_plugin(GamePlugin)
+    .run();
 }

@@ -1,20 +1,19 @@
-use crate::{macros::ez, GameplayState};
+use crate::GameplayState;
 
 #[allow(clippy::module_inception)]
 mod input {
     pub use bevy::prelude::{
         GamepadAxisType, GamepadButtonType, KeyCode, ParallelSystemDescriptorCoercion, Plugin
     };
-    pub use ezinput::prelude::{BindingInputReceiver::*, *};
-    pub use ezinput_macros::*;
+    pub use ezinput::prelude::{*, InputReceiver::*};
 }
 
-use bevy::prelude::{SystemSet, Query, ParallelSystemDescriptorCoercion, With, Transform, Bundle, default};
+use bevy::prelude::{SystemSet, Query, ParallelSystemDescriptorCoercion, With, Transform};
 use input::*;
 
 use super::Player;
 
-ez! {
+input! {
     SnakeTypeBindings {
         Movement<TypeMovement> {
             Horizontal = [
@@ -32,25 +31,6 @@ ez! {
 }
 
 pub type SnakeInputView = InputView<SnakeTypeBindings>;
-
-#[derive(Bundle)]
-pub struct InputBundle {
-    pub input: SnakeInputView,
-    keyboard_input: EZInputKeyboardService,
-    mouse_input: EZInputMouseService,
-    gamepad_input: EZInputGamepadService,
-}
-
-impl Default for InputBundle {
-    fn default() -> Self {
-        Self {
-            input: SnakeTypeBindings::view(),
-            keyboard_input: EZInputKeyboardService::default(),
-            mouse_input: EZInputMouseService::default(),
-            gamepad_input: EZInputGamepadService::default(),
-        }
-    }
-}
 
 crate::labels!(HandlePlayerInput);
 

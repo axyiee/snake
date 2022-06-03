@@ -1,5 +1,5 @@
 use crate::{import, palette::ColorPalette};
-use bevy::{core_pipeline::ClearColor, prelude::{Plugin, Msaa}};
+use bevy::prelude::{ClearColor, Msaa, Plugin};
 
 import!(camera);
 import!(light);

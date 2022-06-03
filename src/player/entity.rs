@@ -1,9 +1,10 @@
-use super::{SnakeInputView, SnakeTypeBindings, InputBundle};
 use bevy::{
-    ecs::bundle,
     pbr::{PbrBundle, StandardMaterial},
     prelude::{default, shape, Assets, Bundle, Color, Component, Mesh, ResMut, Transform},
 };
+use ezinput::prelude::InputHandlingBundle;
+
+use super::SnakeTypeBindings;
 
 #[derive(Debug, Component)]
 pub struct Player;
@@ -12,7 +13,7 @@ pub struct Player;
 pub struct PlayerBundle {
     marker: Player,
     #[bundle]
-    pub input: InputBundle,
+    pub input: InputHandlingBundle<SnakeTypeBindings>,
     #[bundle]
     pub pbr: PbrBundle,
 }
@@ -24,7 +25,7 @@ impl PlayerBundle {
     ) -> Self {
         Self {
             marker: Player,
-            input: InputBundle::default(),
+            input: InputHandlingBundle::new(SnakeTypeBindings::view()),
             pbr: PbrBundle {
                 mesh: meshes.add(Mesh::from(shape::Cube { size: 10.0 })),
                 material: materials.add(Color::rgb(0.8, 0.7, 0.6).into()),
