@@ -50,14 +50,14 @@ fn handle_input(mut query: Query<(&SnakeInputView, &mut Transform), With<Player>
     for (view, mut transform) in query.iter_mut() {
         let view: &SnakeInputView = view;
 
-        if let Some(left_axis) = view.axis(&SnakeTypeBindings::Movement(TypeMovement::Horizontal)).first() {
-            if left_axis.1 != PressState::Released {
-                transform.translation.x += left_axis.0 * 15. * (1. / 60.);
+        if let Some(axis) = view.axis(&SnakeTypeBindings::Movement(TypeMovement::Horizontal)).first() {
+            if axis.press != PressState::Released {
+                transform.translation.x += axis.value * 15. * (1. / 60.);
             }
         }
-        if let Some(left_axis) = view.axis(&SnakeTypeBindings::Movement(TypeMovement::Vertical)).first() {
-            if left_axis.1 != PressState::Released {
-                transform.translation.y += left_axis.0 * 15. * (1. / 60.);
+        if let Some(axis) = view.axis(&SnakeTypeBindings::Movement(TypeMovement::Vertical)).first() {
+            if axis.press != PressState::Released {
+                transform.translation.y += axis.value * 15. * (1. / 60.);
             }
         }
     }
