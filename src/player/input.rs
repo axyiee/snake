@@ -5,10 +5,10 @@ mod input {
     pub use bevy::prelude::{
         GamepadAxisType, GamepadButtonType, KeyCode, ParallelSystemDescriptorCoercion, Plugin
     };
-    pub use ezinput::prelude::{*, InputReceiver::*};
+    pub use ezinput::prelude::*;
 }
 
-use bevy::prelude::{SystemSet, Query, ParallelSystemDescriptorCoercion, With, Transform};
+use bevy::prelude::{SystemSet, Query, ParallelSystemDescriptorCoercion, Res, With, Transform, Time};
 use input::*;
 
 use super::Player;
@@ -46,18 +46,18 @@ impl Plugin for PlayerInputPlugin {
     }
 }
 
-fn handle_input(mut query: Query<(&SnakeInputView, &mut Transform), With<Player>>) {
+fn handle_input(mut query: Query<(&SnakeInputView, &mut Transform), With<Player>>, time: Res<Time>) {
     for (view, mut transform) in query.iter_mut() {
         let view: &SnakeInputView = view;
 
         if let Some(axis) = view.axis(&SnakeTypeBindings::Movement(TypeMovement::Horizontal)).first() {
             if axis.press != PressState::Released {
-                transform.translation.x += axis.value * 15. * (1. / 60.);
+                transform.translation.x += axis.value * 15. * time.delta_seconds();
             }
         }
         if let Some(axis) = view.axis(&SnakeTypeBindings::Movement(TypeMovement::Vertical)).first() {
             if axis.press != PressState::Released {
-                transform.translation.y += axis.value * 15. * (1. / 60.);
+                transform.translation.y += axis.value * 15. * time.delta_seconds();
             }
         }
     }

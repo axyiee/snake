@@ -6,11 +6,11 @@ repository = "https://git.exst.fun/snake"
 license = "MIT"
 authors = ["Pedro Henrique <hello@exst.fun>"]
 categories = ["game", "bevy", "snake", "desktop", "webassembly"]
-description = "A reimplementation of the classic snake game written in Rust." 
+description = "A reimplementation of the classic snake game written in Rust."
 
 [workspace]
 members = ["./", "tools/lint"]
- 
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
@@ -22,5 +22,5 @@ futures = "^0.3"
 web-sys = "^0.3"
 gloo-events = "^0.1"
 
-[dev-dependencies]
-wasm-bindgen-test = "^0.3"
+[patch.crates-io]
+bevy = { git = "https://github.com/bevyengine/bevy" }
